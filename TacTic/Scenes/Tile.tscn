@@ -11,7 +11,7 @@ script = ExtResource( 2 )
 
 [node name="BackgroundSprite" type="AnimatedSprite" parent="."]
 frames = ExtResource( 1 )
-animation = "variant_2"
+animation = "variant_0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
