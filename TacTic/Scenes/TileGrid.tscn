@@ -10,32 +10,33 @@ extents = Vector2( 24, 24 )
 script = ExtResource( 2 )
 
 [node name="Tile1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, 8 )
 
 [node name="Tile2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16, 0 )
+position = Vector2( 24, 8 )
 
 [node name="Tile3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32, 0 )
+position = Vector2( 40, 8 )
 
 [node name="Tile4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 16 )
+position = Vector2( 8, 24 )
 
 [node name="Tile5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16, 16 )
+position = Vector2( 24, 24 )
 
 [node name="Tile6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32, 16 )
+position = Vector2( 40, 24 )
 
 [node name="Tile7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 32 )
+position = Vector2( 8, 40 )
 
 [node name="Tile8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 16, 32 )
+position = Vector2( 24, 40 )
 
 [node name="Tile9" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32, 32 )
+position = Vector2( 40, 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 16, 16 )
+position = Vector2( 24, 24 )
 shape = SubResource( 1 )
