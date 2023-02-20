@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/TileGrid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/DefaultScene.gd" type="Script" id=2]
 
 [node name="DefaultScene" type="Node2D"]
 scale = Vector2( 8, 8 )
+script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 128.0
