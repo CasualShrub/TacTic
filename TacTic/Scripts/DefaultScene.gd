@@ -11,4 +11,7 @@ func _ready():
 func on_shape_added(shape):
 	print("ADDED SHAPE " + shape)
 
+func _input(event):
+	if event.is_action_pressed("menu"):
+		$Menu.visible = !$Menu.visible
 
