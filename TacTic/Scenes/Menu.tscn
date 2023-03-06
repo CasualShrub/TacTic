@@ -1,106 +1,118 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=3 uid="uid://ddcjv7wlgqqqu"]
 
-[ext_resource path="res://Art/Shapes.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
-[ext_resource path="res://Art/Panels.png" type="Texture" id=3]
+[ext_resource type="Texture2D" uid="uid://drbciblpaslgv" path="res://Art/Shapes.png" id="1"]
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://crknr3lfwyayp" path="res://Art/Panels.png" id="3"]
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 64, 24, 64 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("3")
+region = Rect2(0, 64, 24, 64)
 
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ SubResource( 3 ) ],
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 48, 0, 16, 16 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("1")
+region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}],
 "loop": true,
-"name": "default",
+"name": &"default",
 "speed": 5.0
-} ]
+}]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 resource_name = "Appear"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.4, 1.07178 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.4, 1.07178),
 "update": 0,
-"values": [ Vector2( 40, 0 ), Vector2( 0, 0 ) ]
+"values": [Vector2(40, 0), Vector2(0, 0)]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "has_finished_appearing"
-} ]
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"has_finished_appearing"
+}]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id="6"]
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.4, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.4, 1),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 40, 0 ) ]
+"values": [Vector2(0, 0), Vector2(40, 0)]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "has_finished_disappearing"
-} ]
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"has_finished_disappearing"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0imxw"]
+_data = {
+"Appear": SubResource("5"),
+"RESET": SubResource("6")
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
-scale = Vector2( 8, 8 )
-transform = Transform2D( 8, 0, 0, 8, 0, 0 )
-script = ExtResource( 2 )
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("2")
 
 [node name="Menu" type="Node2D" parent="."]
-position = Vector2( 40, 0 )
 
-[node name="Background" type="AnimatedSprite" parent="Menu"]
-position = Vector2( 108, 40 )
-frames = SubResource( 4 )
+[node name="Background" type="AnimatedSprite2D" parent="Menu"]
+position = Vector2(108, 40)
+sprite_frames = SubResource("4")
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Menu"]
-position = Vector2( 108, 20 )
-frames = SubResource( 2 )
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu"]
+position = Vector2(108, 20)
+sprite_frames = SubResource("2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu"]
-anims/Appear = SubResource( 5 )
-anims/RESET = SubResource( 6 )
+libraries = {
+"": SubResource("AnimationLibrary_0imxw")
+}
