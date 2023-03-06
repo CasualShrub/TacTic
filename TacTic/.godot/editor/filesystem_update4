@@ -7,3 +7,6 @@ res://Scenes/TileGrid.tscn
 res://Scripts/Menu.gd
 res://Scenes/Tile.tscn
 res://Scenes/OldMenu.tscn
+res://Scripts/TileGrid.gd
+res://Scripts/Tile.gd
+res://Scripts/DefaultScene.gd
