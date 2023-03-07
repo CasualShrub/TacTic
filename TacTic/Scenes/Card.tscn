@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd02bybthkh35"]
+
+[ext_resource type="SpriteFrames" uid="uid://c52t0q72ariaq" path="res://SpriteFrames/CardBack.tres" id="1_cn13m"]
+
+[node name="Card" type="Node2D"]
+
+[node name="BackgroundSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_cn13m")
+animation = &"cardback_dissapear"
