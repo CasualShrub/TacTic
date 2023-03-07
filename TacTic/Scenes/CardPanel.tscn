@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://qlowg4v7iuan"]
+
+[ext_resource type="PackedScene" uid="uid://cd02bybthkh35" path="res://Scenes/Card.tscn" id="1_bl6jn"]
+
+[node name="CardPanel" type="Node2D"]
+
+[node name="Card" parent="." instance=ExtResource("1_bl6jn")]
+position = Vector2(9, 9)
+
+[node name="Card2" parent="." instance=ExtResource("1_bl6jn")]
+position = Vector2(36, 9)
+
+[node name="Card3" parent="." instance=ExtResource("1_bl6jn")]
+position = Vector2(63, 9)
