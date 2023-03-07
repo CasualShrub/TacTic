@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drbciblpaslgv"
-path="res://.godot/imported/Shapes.png-a1fdd5373fcce1e22a20e06eb859f0e0.ctex"
+uid="uid://upxa4bfqtpp1"
+path="res://.godot/imported/X.png-eee98c0eb91fe0545e7c310b040613ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Shapes.png"
-dest_files=["res://.godot/imported/Shapes.png-a1fdd5373fcce1e22a20e06eb859f0e0.ctex"]
+source_file="res://Art/X.png"
+dest_files=["res://.godot/imported/X.png-eee98c0eb91fe0545e7c310b040613ea.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
