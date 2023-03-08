@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cogllvk8ig6q7"]
+
+[ext_resource type="SpriteFrames" uid="uid://ct2d8ju4ak2yy" path="res://SpriteFrames/Shape_SF.tres" id="1_h7225"]
+[ext_resource type="Script" path="res://Scripts/CardDragSprite.gd" id="2_8vj4w"]
+
+[node name="CardDrag" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_h7225")
+animation = &"empty"
+script = ExtResource("2_8vj4w")

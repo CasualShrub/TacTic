@@ -10,6 +10,8 @@ var mpos = Vector2()
 @onready var BackgroundSprite = $BackgroundSprite
 @onready var ShapeSprite = $ShapeSprite
 
+signal card_dragged
+
 func _ready():
 	var random_int = randi_range(0,2)
 	match random_int:
@@ -21,9 +23,6 @@ func _ready():
 			shape_type = "Triangle"
 	
 	ShapeSprite.play("%s" % shape_type)
-	
-func _process(delta):
-	pass
 
 func _on_mouse_entered():
 	if !is_gone:
@@ -35,8 +34,11 @@ func _on_mouse_exited():
 		is_hovered = false
 		BackgroundSprite.play("%s_default" % "cardback")
 
-func _on_input_event(viewport, event, shape_idx):
+func _on_input_event(_viewport, event, _shape_idx):
 	if is_hovered:
 		if (event.is_pressed()):
 			is_gone = true
 			BackgroundSprite.play("%s_dissapear" % "cardback")
+			ShapeSprite.visible = false
+			
+			emit_signal("card_dragged", shape_type)
