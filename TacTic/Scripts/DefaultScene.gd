@@ -3,10 +3,8 @@ extends Node2D
 @onready var TileGrid = $TileGrid
 @onready var CardPanel = $CardPanel
 
-
 func _ready():
 	TileGrid.design_game_start()
-	
 	TileGrid.connect("game_end_signal", Callable(self, 	"on_game_end"))
 	
 	for tile in TileGrid.tile_array:

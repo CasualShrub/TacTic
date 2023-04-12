@@ -54,7 +54,6 @@ func evaluate_grid():
 	
 	evaluate_line(diagonal1)
 	evaluate_line(diagonal2)
-	
 
 func evaluate_line(tiles):
 	var is_complete = true
@@ -73,7 +72,6 @@ func highlight_tiles_win(tiles):
 
 func game_end():
 	emit_signal("game_end_signal");
-
 
 func get_tile_by_vector(value):
 	for tile in tile_array:

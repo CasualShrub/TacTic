@@ -12,14 +12,13 @@ var mpos = Vector2()
 signal card_dragged
 
 func _ready():
-	randomize_our_cards()
+	randomize_shape()
 	
 func _input(event):
 	if event.is_action_pressed("randomize"):
-		randomize_our_cards()
+		randomize_shape()
 		
-		
-func randomize_our_cards():
+func randomize_shape():
 	var random_int = randi_range(0,2)
 	match random_int:
 		0:
