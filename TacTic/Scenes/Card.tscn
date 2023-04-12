@@ -16,6 +16,7 @@ sprite_frames = ExtResource("2_06bsg")
 animation = &"empty"
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-7, -9, 7, -9, 7, -8, 8, -8, 8, -7, 9, -7, 9, 7, 8, 7, 8, 8, 7, 8, 7, 9, -7, 9, -7, 8, -8, 8, -8, 7, -9, 7, -9, -7, -8, -7, -8, -8, -7, -8)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

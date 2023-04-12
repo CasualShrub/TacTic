@@ -37,10 +37,11 @@ func _on_Tile_input_event(_viewport, event, _shape_idx):
 	if is_hovered:
 		if (event.is_pressed()):
 			BackgroundSprite.play("variant%d_clicked" % tile_type)
-		elif (event is InputEventMouseButton && event.is_action_released("click")):
+		elif (event.is_action_released("click") && GameManager.is_dragging):
 			if (!has_object):
 				BackgroundSprite.play("variant%d" % tile_type)
 				set_shape(shape_being_dragged)
+				GameManager.is_dragging = false
 			else:
 				#emit signal to return shape to original container
 				pass

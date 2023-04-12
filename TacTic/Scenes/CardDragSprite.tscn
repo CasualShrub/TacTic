@@ -5,5 +5,5 @@
 
 [node name="CardDrag" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_h7225")
-animation = &"empty"
+animation = &"O"
 script = ExtResource("2_8vj4w")

@@ -4,7 +4,6 @@ var shape_type = "empty"
 var is_hovered = false
 var is_gone = false
 
-var is_dragging = false
 var mpos = Vector2()
 
 @onready var BackgroundSprite = $BackgroundSprite
@@ -13,6 +12,14 @@ var mpos = Vector2()
 signal card_dragged
 
 func _ready():
+	randomize_our_cards()
+	
+func _input(event):
+	if event.is_action_pressed("randomize"):
+		randomize_our_cards()
+		
+		
+func randomize_our_cards():
 	var random_int = randi_range(0,2)
 	match random_int:
 		0:
@@ -22,7 +29,7 @@ func _ready():
 		2:
 			shape_type = "Triangle"
 	
-	ShapeSprite.play("%s" % shape_type)
+	ShapeSprite.play(shape_type)
 
 func _on_mouse_entered():
 	if !is_gone:
@@ -41,4 +48,9 @@ func _on_input_event(_viewport, event, _shape_idx):
 			BackgroundSprite.play("%s_dissapear" % "cardback")
 			ShapeSprite.visible = false
 			
+			GameManager.is_dragging = true
 			emit_signal("card_dragged", shape_type)
+			
+func reappear():
+	BackgroundSprite.play_backwards("%s_dissapear" % "cardback")
+	
