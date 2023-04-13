@@ -7,9 +7,15 @@
 script = ExtResource("1_kg202")
 
 [node name="Card1" parent="." instance=ExtResource("1_bl6jn")]
-position = Vector2(-27, 0)
+position = Vector2(-36, 0)
 
 [node name="Card2" parent="." instance=ExtResource("1_bl6jn")]
+position = Vector2(-18, 0)
 
 [node name="Card3" parent="." instance=ExtResource("1_bl6jn")]
-position = Vector2(27, 0)
+
+[node name="Card4" parent="." instance=ExtResource("1_bl6jn")]
+position = Vector2(18, 0)
+
+[node name="Card5" parent="." instance=ExtResource("1_bl6jn")]
+position = Vector2(36, 0)
