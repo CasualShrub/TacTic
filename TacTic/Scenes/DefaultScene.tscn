@@ -15,7 +15,7 @@ mouse_filter = 2
 color = Color(0.0901961, 0.0901961, 0.152941, 1)
 
 [node name="TileGrid" parent="." instance=ExtResource("1")]
-position = Vector2(17, 32)
+position = Vector2(45, 60)
 
 [node name="CardPanel" parent="." instance=ExtResource("3_i44po")]
-position = Vector2(9, 123)
+position = Vector2(45, 127)
