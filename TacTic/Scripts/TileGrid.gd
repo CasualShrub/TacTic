@@ -31,6 +31,7 @@ func design_tiles():
 	for i in tile_count:
 		tile_array[i].set_variant(i%2)
 		tile_array[i].position += tile_pos
+		tile_array[i].modulate_color(Color(1,1,1))
 		tile_pos.x += 16
 		if ((i+1)%grid_size == 0):
 			tile_pos.x = -32

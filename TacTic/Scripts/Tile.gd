@@ -20,6 +20,9 @@ func set_variant(value):
 	tile_type = value
 	BackgroundSprite.play("variant%d" % tile_type)
 
+func modulate_color(shade):
+	BackgroundSprite.modulate = shade
+
 func set_shape(value):
 	has_object = true;
 	shape_type = value
