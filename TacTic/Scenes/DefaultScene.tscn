@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq7fgl53yghbs"]
+[gd_scene load_steps=6 format=3 uid="uid://bexpyxst51um3"]
 
 [ext_resource type="PackedScene" uid="uid://cxox51u7gsbmv" path="res://Scenes/TileGrid.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/DefaultScene.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://qlowg4v7iuan" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
 [ext_resource type="PackedScene" uid="uid://5in745n5neu0" path="res://Scenes/TopPanel.tscn" id="4_aiywy"]
+[ext_resource type="PackedScene" uid="uid://ddcjv7wlgqqqu" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
 
 [node name="DefaultScene" type="Node2D"]
 scale = Vector2(8, 8)
 script = ExtResource("2")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 90.0
@@ -47,3 +49,5 @@ color = Color(0.603922, 0.560784, 1, 0.0784314)
 
 [node name="TopPanel" parent="." instance=ExtResource("4_aiywy")]
 position = Vector2(45, 7)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_md822")]

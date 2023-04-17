@@ -1,33 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddcjv7wlgqqqu"]
+[gd_scene load_steps=9 format=3 uid="uid://ddcjv7wlgqqqu"]
 
-[ext_resource type="Texture2D" uid="uid://drbciblpaslgv" path="res://Art/Shapes.png" id="1"]
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://crknr3lfwyayp" path="res://Art/Panels.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c31xcknh51y8r" path="res://Art/Panels.png" id="3"]
 
-[sub_resource type="AtlasTexture" id="3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghpcr"]
 atlas = ExtResource("3")
-region = Rect2(0, 64, 24, 64)
+region = Rect2(32, 0, 96, 128)
 
 [sub_resource type="SpriteFrames" id="4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="1"]
-atlas = ExtResource("1")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="2"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("1")
+"texture": SubResource("AtlasTexture_ghpcr")
 }],
 "loop": true,
 "name": &"default",
@@ -36,6 +20,7 @@ animations = [{
 
 [sub_resource type="Animation" id="5"]
 resource_name = "Appear"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,10 +28,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.4, 1.07178),
 "update": 0,
-"values": [Vector2(40, 0), Vector2(0, 0)]
+"values": [Vector2(45, 220), Vector2(45, 72)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -55,7 +40,7 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -64,6 +49,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="6"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -71,10 +57,26 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.4),
+"update": 0,
+"values": [Vector2(45, 220)]
+}
+
+[sub_resource type="Animation" id="Animation_b1po3"]
+resource_name = "Disappear"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.4, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(40, 0)]
+"values": [Vector2(45, 72), Vector2(45, 220)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -83,7 +85,7 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -94,6 +96,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0imxw"]
 _data = {
 "Appear": SubResource("5"),
+"Disappear": SubResource("Animation_b1po3"),
 "RESET": SubResource("6")
 }
 
@@ -103,14 +106,11 @@ transform = Transform2D(8, 0, 0, 8, 0, 0)
 script = ExtResource("2")
 
 [node name="Menu" type="Node2D" parent="."]
+position = Vector2(45, 220)
 
 [node name="Background" type="AnimatedSprite2D" parent="Menu"]
-position = Vector2(108, 40)
 sprite_frames = SubResource("4")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu"]
-position = Vector2(108, 20)
-sprite_frames = SubResource("2")
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Menu"]
 libraries = {

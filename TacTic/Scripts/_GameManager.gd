@@ -9,9 +9,12 @@ func _ready():
 	is_dragging = false
 	is_pressing = false
 
-func _input(event):
-	if event.is_action_pressed("menu"):
-		show_settings()
-
 func show_settings():
-	print("menu showing")
+	simulate_action("menu")
+
+func simulate_action(action_name: String):
+	var event:InputEventAction = InputEventAction.new()
+	event.action = action_name
+	event.pressed = true
+	Input.parse_input_event(event)
+

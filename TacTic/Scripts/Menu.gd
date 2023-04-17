@@ -9,7 +9,7 @@ func _input(event):
 			if (is_showing == false):
 				$Menu/AnimationPlayer.play("Appear")
 			else:
-				$Menu/AnimationPlayer.play("RESET")
+				$Menu/AnimationPlayer.play("Disappear")
 
 func has_finished_appearing():
 	is_showing = true
