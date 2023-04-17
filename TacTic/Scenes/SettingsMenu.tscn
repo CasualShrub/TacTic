@@ -31,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.4, 1.07178),
 "update": 0,
-"values": [Vector2(45, 220), Vector2(45, 72)]
+"values": [Vector2(45, 220), Vector2(45, 80)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -48,21 +48,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0.4),
-"update": 0,
-"values": [Vector2(45, 220)]
-}
-
 [sub_resource type="Animation" id="Animation_b1po3"]
 resource_name = "Disappear"
 length = 0.6
@@ -76,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.4, 1),
 "update": 0,
-"values": [Vector2(45, 72), Vector2(45, 220)]
+"values": [Vector2(45, 80), Vector2(45, 220)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -91,6 +76,21 @@ tracks/1/keys = {
 "args": [],
 "method": &"has_finished_disappearing"
 }]
+}
+
+[sub_resource type="Animation" id="6"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.4),
+"update": 0,
+"values": [Vector2(45, 220)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0imxw"]
@@ -116,3 +116,12 @@ metadata/_edit_lock_ = true
 libraries = {
 "": SubResource("AnimationLibrary_0imxw")
 }
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 32.0
+offset_bottom = -16.0
+bbcode_enabled = true
+text = "[center]MENU[/center]"
+scroll_active = false
