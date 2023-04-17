@@ -2,9 +2,9 @@ extends Area2D
 
 var tile_scene = preload("res://Scenes/Tile.tscn")
 
-var tile_count
-var tile_array = []
-var grid_size = 5
+var tile_count: int
+var tile_array: Array[Tile] = []
+var grid_size: int = 5
 
 signal game_end_signal
 
@@ -17,7 +17,8 @@ func _ready():
 func setup_tiles():
 	instantiate_tiles()
 	design_tiles()
-	set_tile_vectors()
+	setup_tile_vectors()
+	setup_adjacent_tiles()
 	
 func instantiate_tiles():
 	for i in range(grid_size * grid_size):
@@ -37,7 +38,7 @@ func design_tiles():
 			tile_pos.x = -32
 			tile_pos.y += 16
 
-func set_tile_vectors():
+func setup_tile_vectors():
 	for i in tile_count:
 		var x = i % grid_size
 		var y = i / grid_size
@@ -45,6 +46,55 @@ func set_tile_vectors():
 		
 		if logs_enabled():
 			print("Tile %d has coordinates (%d, %d)" % [i,x,y])
+
+func setup_adjacent_tiles():
+	for tile in tile_array:
+		var current_vector = tile.tile_id
+		var target_vector: Vector2
+		var adjacent_tiles: Array[Tile]
+		for i in 8:
+			match i:
+				0:
+					#North-West
+					target_vector.x = current_vector.x - 1
+					target_vector.y = current_vector.y - 1
+				1:
+					#North
+					target_vector.x = current_vector.x
+					target_vector.y = current_vector.y - 1
+				2:
+					#North-East
+					target_vector.x = current_vector.x + 1
+					target_vector.y = current_vector.y - 1
+				3:
+					#East
+					target_vector.x = current_vector.x + 1
+					target_vector.y = current_vector.y
+				4:
+					#South-East
+					target_vector.x = current_vector.x + 1
+					target_vector.y = current_vector.y + 1
+				5:
+					#South
+					target_vector.x = current_vector.x
+					target_vector.y = current_vector.y + 1
+				6:
+					#South-West
+					target_vector.x = current_vector.x - 1
+					target_vector.y = current_vector.y + 1
+				7:
+					#West
+					target_vector.x = current_vector.x - 1
+					target_vector.y = current_vector.y
+			if is_valid_tile(target_vector):
+				var target_tile = get_tile_by_vector(target_vector)
+				adjacent_tiles.append(target_tile)
+		tile.adjacent_tiles = adjacent_tiles
+
+func is_valid_tile(vector:Vector2):
+	if vector.x < 0 || vector.x >= grid_size || vector.y < 0 || vector.y >= grid_size:
+		return false
+	return true
 
 func design_game_start():
 	tile_array[0].set_shape("X")
@@ -55,6 +105,7 @@ func design_game_start():
 	tile_array[8].set_shape("O")
 
 func evaluate_grid():
+	#TODO: rework evaluation using linked nodes
 	#build arrays for horizontal and vertical
 	for row in grid_size:
 		var horizontal = []
@@ -64,19 +115,6 @@ func evaluate_grid():
 			vertical.append(get_tile_by_vector(Vector2(row, column)))
 		evaluate_line(horizontal)
 		evaluate_line(vertical)
-		
-	#build arrays for both diagonals
-#	var diagonal1 = []
-#	diagonal1.append(tile_array[0])
-#	diagonal1.append(tile_array[4])
-#	diagonal1.append(tile_array[8])
-#	var diagonal2 = []
-#	diagonal2.append(tile_array[2])
-#	diagonal2.append(tile_array[4])
-#	diagonal2.append(tile_array[6])
-#
-#	evaluate_line(diagonal1)
-#	evaluate_line(diagonal2)
 
 func evaluate_line(tiles):
 	var is_complete = true
