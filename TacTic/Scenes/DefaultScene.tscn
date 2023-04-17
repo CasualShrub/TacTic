@@ -1,67 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cq7fgl53yghbs"]
+[gd_scene load_steps=5 format=3 uid="uid://cq7fgl53yghbs"]
 
 [ext_resource type="PackedScene" uid="uid://cxox51u7gsbmv" path="res://Scenes/TileGrid.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/DefaultScene.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://qlowg4v7iuan" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
-[ext_resource type="Texture2D" uid="uid://7e4qr21wquqy" path="res://Art/Gear.png" id="4_fsa21"]
-[ext_resource type="Script" path="res://Scenes/SettingsButton.gd" id="4_ugle8"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s15uu"]
-atlas = ExtResource("4_fsa21")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iicwi"]
-atlas = ExtResource("4_fsa21")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rmlo0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s15uu")
-}],
-"loop": true,
-"name": &"click",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iicwi")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2mgg"]
-atlas = ExtResource("4_fsa21")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i70je"]
-atlas = ExtResource("4_fsa21")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d0sb3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g2mgg")
-}],
-"loop": true,
-"name": &"click",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i70je")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_02wll"]
-size = Vector2(8, 8)
+[ext_resource type="PackedScene" uid="uid://ci0d0wjegsoh7" path="res://Scenes/SettingsButton.tscn" id="4_2gacd"]
 
 [node name="DefaultScene" type="Node2D"]
 scale = Vector2(8, 8)
@@ -111,23 +53,4 @@ offset_bottom = 152.0
 mouse_filter = 2
 color = Color(0.603922, 0.560784, 1, 0.0784314)
 
-[node name="SettingsButton" type="Area2D" parent="."]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("4_ugle8")
-
-[node name="GearButton" type="AnimatedSprite2D" parent="SettingsButton"]
-position = Vector2(166, 14)
-sprite_frames = SubResource("SpriteFrames_rmlo0")
-animation = &"click"
-
-[node name="BurgerButton" type="AnimatedSprite2D" parent="SettingsButton"]
-visible = false
-position = Vector2(166, 14)
-sprite_frames = SubResource("SpriteFrames_d0sb3")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SettingsButton"]
-visible = false
-position = Vector2(166, 14)
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_02wll")
+[node name="SettingsButton" parent="." instance=ExtResource("4_2gacd")]

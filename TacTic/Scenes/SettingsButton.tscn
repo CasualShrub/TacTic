@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="1_yoag1"]
+[ext_resource type="Texture2D" uid="uid://7e4qr21wquqy" path="res://Art/Gear.png" id="2_qs4d7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s15uu"]
+atlas = ExtResource("2_qs4d7")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iicwi"]
+atlas = ExtResource("2_qs4d7")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmlo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s15uu")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iicwi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2mgg"]
+atlas = ExtResource("2_qs4d7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i70je"]
+atlas = ExtResource("2_qs4d7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0sb3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2mgg")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i70je")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02wll"]
+size = Vector2(8, 8)
+
+[node name="SettingsButton" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_yoag1")
+
+[node name="GearButton" type="AnimatedSprite2D" parent="."]
+position = Vector2(166, 14)
+sprite_frames = SubResource("SpriteFrames_rmlo0")
+animation = &"click"
+
+[node name="BurgerButton" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(166, 14)
+sprite_frames = SubResource("SpriteFrames_d0sb3")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(166, 14)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_02wll")
