@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=10 format=3 uid="uid://dlnvgi23m37ec"]
 
 [ext_resource type="Script" path="res://Scripts/SettingsButton.gd" id="1_yoag1"]
 [ext_resource type="Texture2D" uid="uid://7e4qr21wquqy" path="res://Art/Gear.png" id="2_qs4d7"]
@@ -65,18 +65,15 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_yoag1")
 
 [node name="GearButton" type="AnimatedSprite2D" parent="."]
-position = Vector2(166, 14)
 sprite_frames = SubResource("SpriteFrames_rmlo0")
 animation = &"click"
 
 [node name="BurgerButton" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(166, 14)
 sprite_frames = SubResource("SpriteFrames_d0sb3")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(166, 14)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_02wll")
