@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cd02bybthkh35"]
+[gd_scene load_steps=4 format=3 uid="uid://cybmh1de5qy21"]
 
 [ext_resource type="SpriteFrames" uid="uid://c52t0q72ariaq" path="res://SpriteFrames/CardBack.tres" id="1_cn13m"]
 [ext_resource type="Script" path="res://Scripts/Card.gd" id="1_fqrqr"]
-[ext_resource type="SpriteFrames" uid="uid://ct2d8ju4ak2yy" path="res://SpriteFrames/Shape_SF.tres" id="2_06bsg"]
+[ext_resource type="SpriteFrames" uid="uid://ct2d8ju4ak2yy" path="res://SpriteFrames/Shape.tres" id="3_fcfyy"]
 
 [node name="Card" type="Area2D"]
 script = ExtResource("1_fqrqr")
@@ -12,7 +12,7 @@ sprite_frames = ExtResource("1_cn13m")
 animation = &"cardback_default"
 
 [node name="ShapeSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_06bsg")
+sprite_frames = ExtResource("3_fcfyy")
 animation = &"empty"
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]

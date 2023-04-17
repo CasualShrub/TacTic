@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfdyysedjwq1p"]
+[gd_scene load_steps=5 format=3 uid="uid://cy24dhdbm6nda"]
 
-[ext_resource type="SpriteFrames" uid="uid://dtvml7c2j6kba" path="res://SpriteFrames/Tile_SF.tres" id="1"]
 [ext_resource type="Script" path="res://Scripts/Tile.gd" id="2"]
-[ext_resource type="SpriteFrames" uid="uid://ct2d8ju4ak2yy" path="res://SpriteFrames/Shape_SF.tres" id="3"]
+[ext_resource type="SpriteFrames" uid="uid://dtvml7c2j6kba" path="res://SpriteFrames/Tile.tres" id="2_rrqs8"]
+[ext_resource type="SpriteFrames" uid="uid://ct2d8ju4ak2yy" path="res://SpriteFrames/Shape.tres" id="3_gbwva"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(16, 16)
@@ -12,11 +12,11 @@ z_as_relative = false
 script = ExtResource("2")
 
 [node name="BackgroundSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1")
+sprite_frames = ExtResource("2_rrqs8")
 animation = &"variant0"
 
 [node name="ObjectSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("3")
+sprite_frames = ExtResource("3_gbwva")
 animation = &"empty"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
