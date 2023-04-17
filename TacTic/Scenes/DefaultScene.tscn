@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cxox51u7gsbmv" path="res://Scenes/TileGrid.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/DefaultScene.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://qlowg4v7iuan" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
-[ext_resource type="PackedScene" uid="uid://dlnvgi23m37ec" path="res://Scenes/SettingsButton.tscn" id="4_2gacd"]
+[ext_resource type="PackedScene" uid="uid://ci0d0wjegsoh7" path="res://Scenes/SettingsButton.tscn" id="4_2gacd"]
 
 [node name="DefaultScene" type="Node2D"]
 scale = Vector2(8, 8)
@@ -54,4 +54,3 @@ mouse_filter = 2
 color = Color(0.603922, 0.560784, 1, 0.0784314)
 
 [node name="SettingsButton" parent="." instance=ExtResource("4_2gacd")]
-position = Vector2(83, 7)
