@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://curkyydbq40r4"]
+[gd_scene load_steps=3 format=3 uid="uid://curkyydbq40r4"]
+
+[ext_resource type="SpriteFrames" uid="uid://2tmlq3kgs7s3" path="res://SpriteFrames/PlayerCharacter.tres" id="1_l3krh"]
+[ext_resource type="SpriteFrames" uid="uid://bwwbp3g4jso8" path="res://SpriteFrames/NoChaser.tres" id="2_lhf2x"]
 
 [node name="PlayerPanel" type="Node2D"]
 
@@ -10,3 +13,20 @@ offset_bottom = 16.0
 mouse_filter = 2
 color = Color(0.603922, 0.560784, 1, 0.0784314)
 metadata/_edit_lock_ = true
+
+[node name="PlayerCharacter" type="Node2D" parent="."]
+position = Vector2(-24, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PlayerCharacter"]
+sprite_frames = ExtResource("1_l3krh")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.871318
+
+[node name="EnemyCharacter" type="Node2D" parent="."]
+position = Vector2(24, 8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="EnemyCharacter"]
+sprite_frames = ExtResource("2_lhf2x")
+animation = &"idle"
+autoplay = "idle"

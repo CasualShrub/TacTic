@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://bwwbp3g4jso8"]
+
+[ext_resource type="Texture2D" uid="uid://cgpby3sra036a" path="res://Art/NoChaser.png" id="1_kevs4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqegj"]
+atlas = ExtResource("1_kevs4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bda5t"]
+atlas = ExtResource("1_kevs4")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqegj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bda5t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
