@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bexpyxst51um3"]
+[gd_scene load_steps=7 format=3 uid="uid://bexpyxst51um3"]
 
 [ext_resource type="PackedScene" uid="uid://cxox51u7gsbmv" path="res://Scenes/TileGrid.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/DefaultScene.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://curkyydbq40r4" path="res://Scenes/PlayerPanel.tscn" id="3_1gg8d"]
 [ext_resource type="PackedScene" uid="uid://qlowg4v7iuan" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
 [ext_resource type="PackedScene" uid="uid://5in745n5neu0" path="res://Scenes/TopPanel.tscn" id="4_aiywy"]
 [ext_resource type="PackedScene" uid="uid://ddcjv7wlgqqqu" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
@@ -21,16 +22,8 @@ metadata/_edit_lock_ = true
 [node name="TileGrid" parent="." instance=ExtResource("1")]
 position = Vector2(45, 90)
 
-[node name="CardPanel" parent="." instance=ExtResource("3_i44po")]
-position = Vector2(45, 143)
-
-[node name="DesignSpace" type="ColorRect" parent="."]
-offset_left = 5.0
-offset_top = 14.0
-offset_right = 85.0
-offset_bottom = 46.0
-mouse_filter = 2
-color = Color(0.603922, 0.560784, 1, 0.0784314)
+[node name="PlayerPanel" parent="." instance=ExtResource("3_1gg8d")]
+position = Vector2(45, 30)
 
 [node name="GridSpace" type="ColorRect" parent="."]
 offset_left = 5.0
@@ -40,6 +33,9 @@ offset_bottom = 130.0
 mouse_filter = 2
 color = Color(0.603922, 0.560784, 1, 0.0784314)
 
+[node name="TopPanel" parent="." instance=ExtResource("4_aiywy")]
+position = Vector2(45, 7)
+
 [node name="CardSpace" type="ColorRect" parent="."]
 offset_top = 134.0
 offset_right = 90.0
@@ -47,7 +43,7 @@ offset_bottom = 152.0
 mouse_filter = 2
 color = Color(0.603922, 0.560784, 1, 0.0784314)
 
-[node name="TopPanel" parent="." instance=ExtResource("4_aiywy")]
-position = Vector2(45, 7)
+[node name="CardPanel" parent="." instance=ExtResource("3_i44po")]
+position = Vector2(45, 143)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_md822")]
