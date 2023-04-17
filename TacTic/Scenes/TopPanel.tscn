@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://5in745n5neu0"]
+
+[ext_resource type="PackedScene" uid="uid://dlnvgi23m37ec" path="res://Scenes/SettingsButton.tscn" id="1_5ku15"]
+
+[node name="TopPanel" type="Node2D"]
+
+[node name="PanelArea" type="ColorRect" parent="."]
+offset_left = -42.0
+offset_top = -4.0
+offset_right = 42.0
+offset_bottom = 4.0
+mouse_filter = 2
+color = Color(0.603922, 0.560784, 1, 0.0784314)
+
+[node name="SettingsButton" parent="." instance=ExtResource("1_5ku15")]
+position = Vector2(38, 0)
