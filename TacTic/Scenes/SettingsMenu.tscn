@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddcjv7wlgqqqu"]
+[gd_scene load_steps=12 format=3 uid="uid://ddcjv7wlgqqqu"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://c31xcknh51y8r" path="res://Art/Panels.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://duhtud8wqlrq7" path="res://Art/TacTicFont.png" id="3_vnybg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghpcr"]
 atlas = ExtResource("3")
@@ -100,6 +101,21 @@ _data = {
 "RESET": SubResource("6")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbl55"]
+atlas = ExtResource("3_vnybg")
+region = Rect2(64, 64, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4nliq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbl55")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="CanvasLayer" type="CanvasLayer"]
 scale = Vector2(8, 8)
 transform = Transform2D(8, 0, 0, 8, 0, 0)
@@ -118,6 +134,7 @@ libraries = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+visible = false
 offset_left = -32.0
 offset_top = -48.0
 offset_right = 32.0
@@ -125,3 +142,9 @@ offset_bottom = -16.0
 bbcode_enabled = true
 text = "[center]MENU[/center]"
 scroll_active = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Menu"]
+position = Vector2(0, -32)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_4nliq")
+animation = &"idle"
