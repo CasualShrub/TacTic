@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dsrvxv23hhuy5"]
+
+[ext_resource type="Texture2D" uid="uid://buptcrv8858v8" path="res://Art/AudioIcons.png" id="1_4dp1n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cmi4"]
+atlas = ExtResource("1_4dp1n")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ldib"]
+atlas = ExtResource("1_4dp1n")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cmi4")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ldib")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
