@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1ax8yxufjsi3"]
+
+[ext_resource type="Script" path="res://Scripts/MuteButton.gd" id="1_0ddcm"]
+[ext_resource type="SpriteFrames" uid="uid://dsrvxv23hhuy5" path="res://SpriteFrames/MuteButton.tres" id="1_rot72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pk2ib"]
+size = Vector2(14, 14)
+
+[node name="MuteButton" type="Area2D"]
+script = ExtResource("1_0ddcm")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_rot72")
+animation = &"click"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_pk2ib")
