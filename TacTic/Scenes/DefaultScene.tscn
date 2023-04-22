@@ -1,11 +1,43 @@
-[gd_scene load_steps=7 format=3 uid="uid://one12dg2schi"]
+[gd_scene load_steps=13 format=3 uid="uid://one12dg2schi"]
 
 [ext_resource type="PackedScene" uid="uid://cpb5qt2qad7bl" path="res://Scenes/TileGrid.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_q0lt2"]
 [ext_resource type="PackedScene" uid="uid://curkyydbq40r4" path="res://Scenes/PlayerPanel.tscn" id="3_1gg8d"]
 [ext_resource type="PackedScene" uid="uid://558h6jedhb4p" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
 [ext_resource type="PackedScene" uid="uid://5in745n5neu0" path="res://Scenes/TopPanel.tscn" id="4_aiywy"]
-[ext_resource type="PackedScene" uid="uid://ce6qexsd7xoyp" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
+[ext_resource type="PackedScene" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
+[ext_resource type="Texture2D" uid="uid://c1dxqdav1jnql" path="res://Art/DEBUG.png" id="7_f3431"]
+[ext_resource type="Script" path="res://Scripts/debug_button.gd" id="7_v3pqn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2bsj"]
+atlas = ExtResource("7_f3431")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpqya"]
+atlas = ExtResource("7_f3431")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dmxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2bsj")
+}],
+"loop": true,
+"name": &"click",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpqya")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlih4"]
+size = Vector2(8, 8)
 
 [node name="DefaultScene" type="Node2D"]
 scale = Vector2(8, 8)
@@ -46,4 +78,32 @@ color = Color(0.603922, 0.560784, 1, 0.0784314)
 [node name="CardPanel" parent="." instance=ExtResource("3_i44po")]
 position = Vector2(45, 143)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("5_md822")]
+[node name="SettingsLayer" parent="." instance=ExtResource("5_md822")]
+
+[node name="DEBUG" type="Area2D" parent="."]
+position = Vector2(21, 7)
+script = ExtResource("7_v3pqn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DEBUG"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5dmxs")
+animation = &"idle"
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEBUG"]
+visible = false
+shape = SubResource("RectangleShape2D_xlih4")
+metadata/_edit_lock_ = true
+
+[node name="DebugLayer" type="CanvasLayer" parent="DEBUG"]
+visible = false
+
+[node name="Button" type="Button" parent="DEBUG/DebugLayer"]
+offset_left = 72.0
+offset_top = 128.0
+offset_right = 168.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+text = "-HP
+"
