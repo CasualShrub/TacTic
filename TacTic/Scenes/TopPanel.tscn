@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://5in745n5neu0"]
 
-[ext_resource type="PackedScene" uid="uid://dlnvgi23m37ec" path="res://Scenes/SettingsButton.tscn" id="1_5ku15"]
+[ext_resource type="PackedScene" path="res://Scenes/SettingsButton.tscn" id="1_5ku15"]
 
 [node name="TopPanel" type="Node2D"]
 

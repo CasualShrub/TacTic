@@ -1,4 +1,4 @@
-extends "res://Scripts/ClickableObject.gd"
+extends ClickableObject
 
 
 func on_input_event(_viewport, event, _shape_idx):

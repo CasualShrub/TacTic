@@ -1,15 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://bexpyxst51um3"]
+[gd_scene load_steps=7 format=3 uid="uid://one12dg2schi"]
 
-[ext_resource type="PackedScene" uid="uid://cxox51u7gsbmv" path="res://Scenes/TileGrid.tscn" id="1"]
-[ext_resource type="Script" path="res://Scripts/DefaultScene.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://cpb5qt2qad7bl" path="res://Scenes/TileGrid.tscn" id="1"]
+[ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_q0lt2"]
 [ext_resource type="PackedScene" uid="uid://curkyydbq40r4" path="res://Scenes/PlayerPanel.tscn" id="3_1gg8d"]
-[ext_resource type="PackedScene" uid="uid://qlowg4v7iuan" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
+[ext_resource type="PackedScene" uid="uid://558h6jedhb4p" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
 [ext_resource type="PackedScene" uid="uid://5in745n5neu0" path="res://Scenes/TopPanel.tscn" id="4_aiywy"]
-[ext_resource type="PackedScene" uid="uid://ddcjv7wlgqqqu" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
+[ext_resource type="PackedScene" uid="uid://ce6qexsd7xoyp" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
 
 [node name="DefaultScene" type="Node2D"]
 scale = Vector2(8, 8)
-script = ExtResource("2")
+script = ExtResource("1_q0lt2")
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -1,3 +1,4 @@
+class_name ClickableObject
 extends Area2D
 
 var BackgroundSprite: AnimatedSprite2D

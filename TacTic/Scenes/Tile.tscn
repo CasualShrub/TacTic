@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy24dhdbm6nda"]
+[gd_scene load_steps=5 format=3 uid="uid://ua7rv7hhvagi"]
 
-[ext_resource type="Script" path="res://Scripts/Tile.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/tile.gd" id="1_3r6ns"]
 [ext_resource type="SpriteFrames" uid="uid://dtvml7c2j6kba" path="res://SpriteFrames/Tile.tres" id="2_rrqs8"]
 [ext_resource type="SpriteFrames" uid="uid://ct2d8ju4ak2yy" path="res://SpriteFrames/Shape.tres" id="3_gbwva"]
 
@@ -9,7 +9,7 @@ size = Vector2(16, 16)
 
 [node name="Tile" type="Area2D"]
 z_as_relative = false
-script = ExtResource("2")
+script = ExtResource("1_3r6ns")
 
 [node name="BackgroundSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_rrqs8")

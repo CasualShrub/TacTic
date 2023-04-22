@@ -1,4 +1,4 @@
-extends "res://Scripts/ClickableObject.gd"
+extends ClickableObject
 
 var is_muted: bool
 
