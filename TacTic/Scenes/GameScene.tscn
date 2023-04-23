@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ds50t6winsghq"]
+[gd_scene load_steps=15 format=3 uid="uid://ba2ro7thfvtu7"]
 
 [ext_resource type="PackedScene" uid="uid://cpb5qt2qad7bl" path="res://Scenes/TileGrid.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_q0lt2"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c1dxqdav1jnql" path="res://Art/DEBUG.png" id="7_f3431"]
 [ext_resource type="Script" path="res://Scripts/Debug/debug_button.gd" id="7_kq124"]
 [ext_resource type="Script" path="res://Scripts/Debug/lose_hp_player_button.gd" id="9_cxwcx"]
-[ext_resource type="Script" path="res://Scenes/gain_hp_player_button.gd" id="10_ls2yv"]
+[ext_resource type="Script" path="res://Scripts/Debug/gain_hp_player_button.gd" id="10_su43m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q2bsj"]
 atlas = ExtResource("7_f3431")
@@ -41,7 +41,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlih4"]
 size = Vector2(8, 8)
 
-[node name="DefaultScene" type="Node2D"]
+[node name="GameScene" type="Node2D"]
 scale = Vector2(8, 8)
 script = ExtResource("1_q0lt2")
 metadata/_edit_lock_ = true
@@ -119,7 +119,7 @@ theme_override_font_sizes/font_size = 38
 action_mode = 0
 text = "+HP
 "
-script = ExtResource("10_ls2yv")
+script = ExtResource("10_su43m")
 
 [connection signal="pressed" from="DEBUG/DebugLayer/-HP" to="DEBUG/DebugLayer/-HP" method="_on_pressed"]
 [connection signal="pressed" from="DEBUG/DebugLayer/+HP" to="DEBUG/DebugLayer/+HP" method="_on_pressed"]

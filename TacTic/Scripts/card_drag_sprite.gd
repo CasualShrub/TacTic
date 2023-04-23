@@ -1,6 +1,6 @@
 extends AnimatedSprite2D
 
-var shape_type = "empty"
+var shape_type: String = "empty"
 
 signal card_released_signal
 

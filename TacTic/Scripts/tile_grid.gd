@@ -113,19 +113,9 @@ func evaluate_grid():
 		for column in grid_size:
 			horizontal.append(get_tile_by_vector(Vector2(column, row)))
 			vertical.append(get_tile_by_vector(Vector2(row, column)))
-		evaluate_line(horizontal)
-		evaluate_line(vertical)
 
 func evaluate_line(tiles):
-	var is_complete = true
-	var type = tiles[0].shape_type
-	for tile in tiles:
-		if tile.shape_type != type:
-			is_complete = false
-			break
-	if is_complete:
-		game_end()
-		highlight_tiles_win(tiles)
+	pass
 
 func highlight_tiles_win(tiles):
 	for tile in tiles:

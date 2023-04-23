@@ -8,8 +8,10 @@ func _input(event):
 		if (is_animating == false):
 			if (is_showing == false):
 				$Menu/AnimationPlayer.play("Appear")
+				GameManager.change_game_state(GameManager.GameState.SETTINGS_MENU)
 			else:
 				$Menu/AnimationPlayer.play("Disappear")
+				GameManager.change_game_state(GameManager.GameState.RESTORE)
 
 func has_finished_appearing():
 	is_showing = true

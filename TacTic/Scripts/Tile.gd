@@ -48,7 +48,7 @@ func _on_Tile_input_event(_viewport, event, _shape_idx):
 		elif (event.is_action_released("click") && GameManager.is_dragging):
 			if (!has_object):
 				BackgroundSprite.play("variant%d" % tile_type)
-				set_shape(shape_being_dragged)
+				set_shape(GameManager.shape_being_dragged)
 				GameManager.is_dragging = false
 			else:
 				#emit signal to return shape to original container
