@@ -50,8 +50,8 @@ func setup_tile_vectors():
 func setup_adjacent_tiles():
 	for tile in tile_array:
 		var current_vector = tile.tile_id
-		var target_vector: Vector2
-		var adjacent_tiles: Array[Tile]
+		var target_vector: Vector2 = Vector2.ZERO
+		var adjacent_tiles: Array[Tile] = []
 		for i in 8:
 			match i:
 				0:

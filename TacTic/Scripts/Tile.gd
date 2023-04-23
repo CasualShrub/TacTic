@@ -37,7 +37,8 @@ func set_shape(value):
 	emit_signal("shape_added", shape_type)
 
 func highlight_shape():
-	ObjectSprite.play("%s_win" % shape_type)
+	if (shape_type != "empty"):
+		ObjectSprite.play("%s_win" % shape_type)
 
 func _on_Tile_input_event(_viewport, event, _shape_idx):
 	if is_hovered:
