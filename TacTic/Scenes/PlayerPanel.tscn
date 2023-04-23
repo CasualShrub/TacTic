@@ -7,7 +7,6 @@
 [node name="PlayerPanel" type="Node2D"]
 
 [node name="PanelArea" type="ColorRect" parent="."]
-visible = false
 offset_left = -40.0
 offset_top = -16.0
 offset_right = 40.0
@@ -34,5 +33,5 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="HealthBar" parent="." instance=ExtResource("3_mwtcu")]
-position = Vector2(-24, 0)
-scale = Vector2(0.3, 0.3)
+position = Vector2(-24, 2)
+scale = Vector2(0.25, 0.25)

@@ -1,13 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://one12dg2schi"]
+[gd_scene load_steps=15 format=3 uid="uid://ds50t6winsghq"]
 
 [ext_resource type="PackedScene" uid="uid://cpb5qt2qad7bl" path="res://Scenes/TileGrid.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_q0lt2"]
 [ext_resource type="PackedScene" uid="uid://curkyydbq40r4" path="res://Scenes/PlayerPanel.tscn" id="3_1gg8d"]
 [ext_resource type="PackedScene" uid="uid://558h6jedhb4p" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
 [ext_resource type="PackedScene" uid="uid://5in745n5neu0" path="res://Scenes/TopPanel.tscn" id="4_aiywy"]
-[ext_resource type="PackedScene" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
+[ext_resource type="PackedScene" uid="uid://cxidgttrxiodn" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
 [ext_resource type="Texture2D" uid="uid://c1dxqdav1jnql" path="res://Art/DEBUG.png" id="7_f3431"]
-[ext_resource type="Script" path="res://Scripts/debug_button.gd" id="7_v3pqn"]
+[ext_resource type="Script" path="res://Scripts/Debug/debug_button.gd" id="7_kq124"]
+[ext_resource type="Script" path="res://Scripts/Debug/lose_hp_player_button.gd" id="9_cxwcx"]
+[ext_resource type="Script" path="res://Scenes/gain_hp_player_button.gd" id="10_ls2yv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q2bsj"]
 atlas = ExtResource("7_f3431")
@@ -82,7 +84,7 @@ position = Vector2(45, 143)
 
 [node name="DEBUG" type="Area2D" parent="."]
 position = Vector2(21, 7)
-script = ExtResource("7_v3pqn")
+script = ExtResource("7_kq124")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DEBUG"]
 scale = Vector2(0.5, 0.5)
@@ -96,14 +98,28 @@ shape = SubResource("RectangleShape2D_xlih4")
 metadata/_edit_lock_ = true
 
 [node name="DebugLayer" type="CanvasLayer" parent="DEBUG"]
-visible = false
 
-[node name="Button" type="Button" parent="DEBUG/DebugLayer"]
-offset_left = 72.0
+[node name="-HP" type="Button" parent="DEBUG/DebugLayer"]
+offset_left = 64.0
 offset_top = 128.0
-offset_right = 168.0
+offset_right = 160.0
 offset_bottom = 224.0
 theme_override_font_sizes/font_size = 38
 action_mode = 0
 text = "-HP
 "
+script = ExtResource("9_cxwcx")
+
+[node name="+HP" type="Button" parent="DEBUG/DebugLayer"]
+offset_left = 176.0
+offset_top = 128.0
+offset_right = 272.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+text = "+HP
+"
+script = ExtResource("10_ls2yv")
+
+[connection signal="pressed" from="DEBUG/DebugLayer/-HP" to="DEBUG/DebugLayer/-HP" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/DebugLayer/+HP" to="DEBUG/DebugLayer/+HP" method="_on_pressed"]

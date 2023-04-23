@@ -1,29 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlcgsoau2fm0h"]
+[gd_scene load_steps=3 format=3 uid="uid://dlcgsoau2fm0h"]
 
+[ext_resource type="Script" path="res://Scripts/health_bar.gd" id="1_xwi2x"]
 [ext_resource type="SpriteFrames" uid="uid://6oxdld8nvxrr" path="res://SpriteFrames/HealthBar.tres" id="1_y8811"]
 
 [node name="HealthBar" type="Node2D"]
+script = ExtResource("1_xwi2x")
 
-[node name="Three" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_y8811")
-animation = &"alive"
-
-[node name="One" type="AnimatedSprite2D" parent="."]
+[node name="1" type="AnimatedSprite2D" parent="."]
 position = Vector2(-32, 0)
 sprite_frames = ExtResource("1_y8811")
 animation = &"alive"
 
-[node name="Two" type="AnimatedSprite2D" parent="."]
+[node name="2" type="AnimatedSprite2D" parent="."]
 position = Vector2(-16, 0)
 sprite_frames = ExtResource("1_y8811")
 animation = &"alive"
 
-[node name="Four" type="AnimatedSprite2D" parent="."]
+[node name="3" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_y8811")
+animation = &"alive"
+
+[node name="4" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, 0)
 sprite_frames = ExtResource("1_y8811")
 animation = &"alive"
 
-[node name="Five" type="AnimatedSprite2D" parent="."]
+[node name="5" type="AnimatedSprite2D" parent="."]
 position = Vector2(32, 0)
 sprite_frames = ExtResource("1_y8811")
 animation = &"alive"
