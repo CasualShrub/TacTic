@@ -17,8 +17,8 @@ config/icon="res://Misc/icon.png"
 
 [autoload]
 
-GameManager="*res://Scripts/_Managers/game_manager.gd"
-PlayerManager="*res://Scripts/_Managers/player_manager.gd"
+GameManager="*res://Scripts/_Managers/_game_manager.gd"
+PlayerManager="*res://Scripts/_Managers/_player_manager.gd"
 
 [debug]
 
