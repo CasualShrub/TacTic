@@ -1,10 +1,11 @@
+class_name Card
 extends Node2D
 
-var shape_type = "empty"
-var is_hovered = false
-var is_gone = false
+var shape_type: String = "empty"
+var is_hovered: bool = false
+var is_gone: bool = false
 
-var mpos = Vector2()
+var mpos: Vector2 = Vector2()
 
 @onready var BackgroundSprite = $BackgroundSprite
 @onready var ShapeSprite = $ShapeSprite
@@ -17,7 +18,12 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("randomize"):
 		randomize_shape()
-		
+	elif event.is_action_pressed("draw"):
+		draw()
+
+func draw():
+	pass
+
 func randomize_shape():
 	var random_int = randi_range(0,2)
 	match random_int:
@@ -43,13 +49,15 @@ func _on_mouse_exited():
 func _on_input_event(_viewport, event, _shape_idx):
 	if is_hovered:
 		if (event.is_pressed()):
-			is_gone = true
-			BackgroundSprite.play("%s_dissapear" % "cardback")
-			ShapeSprite.visible = false
-			
+			disappear()
 			GameManager.is_dragging = true
+			ShapeSprite.play("empty")
 			emit_signal("card_dragged", shape_type)
-			
+
+func disappear():
+	BackgroundSprite.play("%s_dissapear" % "cardback")
+	is_gone = true
+
 func reappear():
 	BackgroundSprite.play_backwards("%s_dissapear" % "cardback")
-	
+	is_gone = false

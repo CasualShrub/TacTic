@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://cspxh3uc5ag5l"]
 
 [ext_resource type="SpriteFrames" uid="uid://c52t0q72ariaq" path="res://SpriteFrames/CardBack.tres" id="1_cn13m"]
 [ext_resource type="Script" path="res://Scripts/card.gd" id="1_fqrqr"]
