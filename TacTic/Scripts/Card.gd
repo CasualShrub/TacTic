@@ -14,6 +14,8 @@ signal card_dragged
 
 func _ready():
 	randomize_shape()
+	EventManager.card_drag_fail.connect(Callable(self,"on_card_drag_fail"))
+	EventManager.card_drag_success.connect(Callable(self,"on_card_drag_success"))
 	
 func _input(event):
 	if event.is_action_pressed("randomize"):
@@ -46,12 +48,21 @@ func _on_mouse_exited():
 		is_hovered = false
 		BackgroundSprite.play("%s_default" % "cardback")
 
+func on_card_drag_fail():
+	if is_gone:
+		reappear()
+
+func on_card_drag_success():
+	if is_gone:
+		self.queue_free()
+
 func _on_input_event(_viewport, event, _shape_idx):
 	if is_hovered:
 		if (event.is_pressed()):
 			disappear()
 			GameManager.is_dragging = true
 			ShapeSprite.play("empty")
+			ShapeSprite.visible = false
 			emit_signal("card_dragged", shape_type)
 
 func disappear():
@@ -60,4 +71,5 @@ func disappear():
 
 func reappear():
 	BackgroundSprite.play_backwards("%s_dissapear" % "cardback")
+	ShapeSprite.visible = true #TODO: call this at the end of the animation?
 	is_gone = false

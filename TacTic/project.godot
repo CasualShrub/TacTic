@@ -19,6 +19,7 @@ config/icon="res://Misc/icon.png"
 
 GameManager="*res://Scripts/_Managers/_game_manager.gd"
 PlayerManager="*res://Scripts/_Managers/_player_manager.gd"
+EventManager="*res://Scripts/_Managers/_event_manager.gd"
 
 [debug]
 

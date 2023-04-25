@@ -50,6 +50,7 @@ func _on_Tile_input_event(_viewport, event, _shape_idx):
 				BackgroundSprite.play("variant%d" % tile_type)
 				set_shape(GameManager.shape_being_dragged)
 				GameManager.is_dragging = false
+				EventManager.emit_card_drag_success()
 			else:
 				#emit signal to return shape to original container
 				pass
