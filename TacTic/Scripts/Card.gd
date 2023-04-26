@@ -4,6 +4,7 @@ extends Node2D
 var shape_type: String = "empty"
 var is_hovered: bool = false
 var is_gone: bool = false
+var position_in_hand: int = 0
 
 var mpos: Vector2 = Vector2()
 
@@ -54,6 +55,7 @@ func on_card_drag_fail():
 
 func on_card_drag_success():
 	if is_gone:
+		EventManager.emit_card_removed_from_hand(position_in_hand)
 		self.queue_free()
 
 func _on_input_event(_viewport, event, _shape_idx):
