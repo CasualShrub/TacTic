@@ -1,26 +1,26 @@
-[gd_scene load_steps=17 format=3 uid="uid://ba2ro7thfvtu7"]
+[gd_scene load_steps=17 format=3 uid="uid://dwg32hjrp8uoh"]
 
-[ext_resource type="PackedScene" uid="uid://cpb5qt2qad7bl" path="res://Scenes/TileGrid.tscn" id="1"]
-[ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_q0lt2"]
-[ext_resource type="PackedScene" uid="uid://curkyydbq40r4" path="res://Scenes/PlayerPanel.tscn" id="3_1gg8d"]
-[ext_resource type="PackedScene" uid="uid://558h6jedhb4p" path="res://Scenes/CardPanel.tscn" id="3_i44po"]
-[ext_resource type="PackedScene" uid="uid://5in745n5neu0" path="res://Scenes/TopPanel.tscn" id="4_aiywy"]
-[ext_resource type="PackedScene" uid="uid://cxidgttrxiodn" path="res://Scenes/SettingsMenu.tscn" id="5_md822"]
-[ext_resource type="Texture2D" uid="uid://c1dxqdav1jnql" path="res://Art/DEBUG.png" id="7_f3431"]
-[ext_resource type="Script" path="res://Scripts/Debug/debug_button.gd" id="7_kq124"]
-[ext_resource type="Script" path="res://Scripts/Debug/lose_hp_player_button.gd" id="9_cxwcx"]
-[ext_resource type="Script" path="res://Scripts/Debug/gain_hp_player_button.gd" id="10_su43m"]
-[ext_resource type="Script" path="res://Scripts/invalid_area.gd" id="11_76w6m"]
+[ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_mpepw"]
+[ext_resource type="Script" path="res://Scripts/invalid_area.gd" id="2_g7ic8"]
+[ext_resource type="PackedScene" uid="uid://cpb5qt2qad7bl" path="res://Scenes/Panels/TileGrid.tscn" id="3_mupgs"]
+[ext_resource type="PackedScene" uid="uid://curkyydbq40r4" path="res://Scenes/Panels/PlayerPanel.tscn" id="4_fjcw0"]
+[ext_resource type="PackedScene" uid="uid://5in745n5neu0" path="res://Scenes/Panels/TopPanel.tscn" id="5_jch8p"]
+[ext_resource type="PackedScene" uid="uid://558h6jedhb4p" path="res://Scenes/Panels/CardPanel.tscn" id="6_b8asv"]
+[ext_resource type="PackedScene" uid="uid://cxidgttrxiodn" path="res://Scenes/SettingsMenu.tscn" id="7_hsl3d"]
+[ext_resource type="Script" path="res://Scripts/Debug/debug_button.gd" id="8_2kf0w"]
+[ext_resource type="Texture2D" uid="uid://c1dxqdav1jnql" path="res://Art/DEBUG.png" id="9_bk13b"]
+[ext_resource type="Script" path="res://Scripts/Debug/lose_hp_player_button.gd" id="10_ymshx"]
+[ext_resource type="Script" path="res://Scripts/Debug/gain_hp_player_button.gd" id="11_01be1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1u1p"]
 size = Vector2(90, 92.6348)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q2bsj"]
-atlas = ExtResource("7_f3431")
+atlas = ExtResource("9_bk13b")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpqya"]
-atlas = ExtResource("7_f3431")
+atlas = ExtResource("9_bk13b")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5dmxs"]
@@ -47,7 +47,7 @@ size = Vector2(8, 8)
 
 [node name="GameScene" type="Node2D"]
 scale = Vector2(8, 8)
-script = ExtResource("1_q0lt2")
+script = ExtResource("1_mpepw")
 metadata/_edit_lock_ = true
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
@@ -59,7 +59,7 @@ metadata/_edit_lock_ = true
 
 [node name="InvalidArea" type="Area2D" parent="."]
 position = Vector2(45, 90)
-script = ExtResource("11_76w6m")
+script = ExtResource("2_g7ic8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvalidArea"]
 visible = false
@@ -81,23 +81,23 @@ visible = false
 position = Vector2(85.5, 0.5)
 shape = SubResource("RectangleShape2D_i1u1p")
 
-[node name="TileGrid" parent="." instance=ExtResource("1")]
+[node name="TileGrid" parent="." instance=ExtResource("3_mupgs")]
 position = Vector2(45, 90)
 
-[node name="PlayerPanel" parent="." instance=ExtResource("3_1gg8d")]
+[node name="PlayerPanel" parent="." instance=ExtResource("4_fjcw0")]
 position = Vector2(45, 30)
 
-[node name="TopPanel" parent="." instance=ExtResource("4_aiywy")]
+[node name="TopPanel" parent="." instance=ExtResource("5_jch8p")]
 position = Vector2(45, 7)
 
-[node name="CardPanel" parent="." instance=ExtResource("3_i44po")]
+[node name="CardPanel" parent="." instance=ExtResource("6_b8asv")]
 position = Vector2(45, 143)
 
-[node name="SettingsLayer" parent="." instance=ExtResource("5_md822")]
+[node name="SettingsLayer" parent="." instance=ExtResource("7_hsl3d")]
 
 [node name="DEBUG" type="Area2D" parent="."]
 position = Vector2(21, 7)
-script = ExtResource("7_kq124")
+script = ExtResource("8_2kf0w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DEBUG"]
 scale = Vector2(0.5, 0.5)
@@ -121,7 +121,7 @@ theme_override_font_sizes/font_size = 38
 action_mode = 0
 text = "-HP
 "
-script = ExtResource("9_cxwcx")
+script = ExtResource("10_ymshx")
 
 [node name="+HP" type="Button" parent="DEBUG/DebugLayer"]
 offset_left = 176.0
@@ -132,7 +132,7 @@ theme_override_font_sizes/font_size = 38
 action_mode = 0
 text = "+HP
 "
-script = ExtResource("10_su43m")
+script = ExtResource("11_01be1")
 
 [connection signal="input_event" from="InvalidArea" to="InvalidArea" method="_on_input_event"]
 [connection signal="pressed" from="DEBUG/DebugLayer/-HP" to="DEBUG/DebugLayer/-HP" method="_on_pressed"]
