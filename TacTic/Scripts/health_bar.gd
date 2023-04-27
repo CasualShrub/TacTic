@@ -11,7 +11,6 @@ func _ready():
 	PlayerManager.health_changed.connect(Callable(self, "update_HealthBar"))
 
 func update_HealthBar(health: int):
-	print("entered healthbar: hp:%d" % health)
 	for i in bar_array.size():
 		if((i+1) > health):
 			bar_array[i].visible = false
