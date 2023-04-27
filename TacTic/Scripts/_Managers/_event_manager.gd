@@ -3,7 +3,7 @@ extends Node
 #emitted when a player drags and releases a card to an invalid screen space
 signal card_drag_fail
 #emitted when a player drags and releases a card to a valid tile
-signal card_drag_success
+signal card_drag_success(position: Vector2)
 #emitted when a card is removed from hand
 signal card_removed_from_hand(position: int)
 #emitted when a card is drawn
@@ -20,8 +20,8 @@ func emit_card_drag_fail():
 	if is_logging_enabled():
 		print("Card drag failed!")
 
-func emit_card_drag_success():
-	emit_signal("card_drag_success")
+func emit_card_drag_success(position: Vector2):
+	emit_signal("card_drag_success", position)
 	if is_logging_enabled():
 		print("Card drag success!")
 

@@ -16,7 +16,7 @@ signal card_dragged
 func _ready():
 	randomize_shape()
 	EventManager.card_drag_fail.connect(Callable(self,"on_card_drag_fail"))
-	EventManager.card_drag_success.connect(Callable(self,"on_card_drag_success"))
+	EventManager.card_drag_success.connect(on_card_drag_success)
 	
 func _input(event):
 	if event.is_action_pressed("randomize"):
@@ -51,7 +51,7 @@ func on_card_drag_fail():
 	if is_gone:
 		reappear()
 
-func on_card_drag_success():
+func on_card_drag_success(_position: Vector2):
 	if is_gone:
 		EventManager.emit_card_removed_from_hand(position_in_hand)
 		self.queue_free()

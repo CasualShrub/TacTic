@@ -22,7 +22,8 @@ func on_card_dragged(shape_type):
 	GameManager.shape_being_dragged = shape_type
 
 func on_shape_added(_shape):
-	TileGrid.evaluate_grid()
+	#TileGrid.evaluate_grid()
+	pass
 
 func on_game_end():
 	print("game is over bruh")

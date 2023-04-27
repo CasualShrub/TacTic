@@ -13,6 +13,7 @@ func logs_enabled():
 
 func _ready():
 	setup_tiles()
+	EventManager.card_drag_success.connect(evaluate_grid)
 	
 func setup_tiles():
 	instantiate_tiles()
@@ -24,7 +25,7 @@ func instantiate_tiles():
 	for i in range(grid_size * grid_size):
 		var tile = tile_scene.instantiate()
 		add_child(tile)
-		tile_array.append(tile) 
+		tile_array.append(tile)
 	tile_count = tile_array.size()
 
 func design_tiles():
@@ -89,6 +90,8 @@ func setup_adjacent_tiles():
 			if is_valid_tile(target_vector):
 				var target_tile = get_tile_by_vector(target_vector)
 				adjacent_tiles.append(target_tile)
+			else:
+				adjacent_tiles.append(null)
 		tile.adjacent_tiles = adjacent_tiles
 
 func is_valid_tile(vector:Vector2):
@@ -104,18 +107,34 @@ func design_game_start():
 	tile_array[7].set_shape("X")
 	tile_array[8].set_shape("O")
 
-func evaluate_grid():
-	#TODO: rework evaluation using linked nodes
-	#build arrays for horizontal and vertical
-	for row in grid_size:
-		var horizontal = []
-		var vertical = []
-		for column in grid_size:
-			horizontal.append(get_tile_by_vector(Vector2(column, row)))
-			vertical.append(get_tile_by_vector(Vector2(row, column)))
+func evaluate_grid(start_position: Vector2):
+	#get starting tile
+	var new_tile: Tile = get_tile_by_vector(start_position)
+	var matched_tiles: Array[Tile] = [new_tile]
+	
+	#0 = NW, 4 = SE --> Rotate through each direction by incrementing
+	#For example next direction would be: 1 = N, 5 = S
+	var direction1: int = 0
+	var direction2: int = 4
+	
+	#evaluate for each direction (\, |, /, —)
+	for i in 3:
+		direction1 += i
+		direction2 += i
+		var matches: Array[Tile] = evaluate_line(new_tile, direction1, direction2)
+		matched_tiles.append_array(matches) 
+	
+	if (matched_tiles.size() >= 3):
+		for tile in matched_tiles:
+			print(tile.tile_id)
+			tile.modulate_color(Color.LIGHT_PINK)
 
-func evaluate_line(tiles):
-	pass
+func evaluate_line(center_tile: Tile, direction1: int, direction2: int):
+	var eval_array: Array[Tile] = []
+	eval_array = center_tile.get_matches_for_direction(direction1, eval_array, center_tile.shape_type)
+	eval_array = center_tile.get_matches_for_direction(direction2, eval_array, center_tile.shape_type)
+	
+	return eval_array
 
 func highlight_tiles_win(tiles):
 	for tile in tiles:
