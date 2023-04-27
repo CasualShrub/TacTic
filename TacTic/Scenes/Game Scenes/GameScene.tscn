@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwg32hjrp8uoh"]
+[gd_scene load_steps=18 format=3 uid="uid://dwg32hjrp8uoh"]
 
 [ext_resource type="Script" path="res://Scripts/game_scene.gd" id="1_mpepw"]
 [ext_resource type="Script" path="res://Scripts/invalid_area.gd" id="2_g7ic8"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c1dxqdav1jnql" path="res://Art/DEBUG.png" id="9_bk13b"]
 [ext_resource type="Script" path="res://Scripts/Debug/lose_hp_player_button.gd" id="10_ymshx"]
 [ext_resource type="Script" path="res://Scripts/Debug/gain_hp_player_button.gd" id="11_01be1"]
+[ext_resource type="Script" path="res://Scripts/Debug/debug_draw_card.gd" id="12_dhijm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1u1p"]
 size = Vector2(90, 92.6348)
@@ -134,6 +135,18 @@ text = "+HP
 "
 script = ExtResource("11_01be1")
 
+[node name="D" type="Button" parent="DEBUG/DebugLayer"]
+offset_left = 288.0
+offset_top = 128.0
+offset_right = 384.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 38
+action_mode = 0
+text = "D
+"
+script = ExtResource("12_dhijm")
+
 [connection signal="input_event" from="InvalidArea" to="InvalidArea" method="_on_input_event"]
 [connection signal="pressed" from="DEBUG/DebugLayer/-HP" to="DEBUG/DebugLayer/-HP" method="_on_pressed"]
 [connection signal="pressed" from="DEBUG/DebugLayer/+HP" to="DEBUG/DebugLayer/+HP" method="_on_pressed"]
+[connection signal="pressed" from="DEBUG/DebugLayer/D" to="DEBUG/DebugLayer/D" method="_on_pressed"]

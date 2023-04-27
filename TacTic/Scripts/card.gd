@@ -21,8 +21,6 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("randomize"):
 		randomize_shape()
-	elif event.is_action_pressed("draw"):
-		draw()
 
 func draw():
 	pass
