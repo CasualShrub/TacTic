@@ -108,7 +108,6 @@ func design_game_start():
 	tile_array[8].set_shape("O")
 
 func evaluate_grid(start_position: Vector2):
-	#get starting tile
 	var new_tile: Tile = get_tile_by_vector(start_position)
 	var matched_tiles: Array[Tile] = [new_tile]
 	
@@ -128,12 +127,12 @@ func evaluate_grid(start_position: Vector2):
 		for tile in matched_tiles:
 			print(tile.tile_id)
 			tile.modulate_color(Color.LIGHT_PINK)
+			tile.animate_on_match()
 
 func evaluate_line(center_tile: Tile, direction1: int, direction2: int):
 	var eval_array: Array[Tile] = []
 	eval_array = center_tile.get_matches_for_direction(direction1, eval_array, center_tile.shape_type)
 	eval_array = center_tile.get_matches_for_direction(direction2, eval_array, center_tile.shape_type)
-	
 	return eval_array
 
 func highlight_tiles_win(tiles):

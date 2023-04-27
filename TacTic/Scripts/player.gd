@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready():
 	Animator.play("idle")
+	GameManager.player_position = self.global_position
 	EventManager.player_damaged.connect(on_player_damaged)
 
 func on_player_damaged():

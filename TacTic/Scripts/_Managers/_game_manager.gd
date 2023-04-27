@@ -7,6 +7,10 @@ var shape_being_dragged: String = "empty"
 enum GameState {RESTORE, MAIN_MENU, SETTINGS_MENU, PLAYER_TURN, ENEMY_TURN}
 var game_state: GameState
 
+var player_position: Vector2 = Vector2.ZERO
+var enemy_position: Vector2 = Vector2.ZERO
+
+
 func _ready():
 	is_dragging = false
 	is_pressing = false

@@ -56,7 +56,6 @@ offset_right = 90.0
 offset_bottom = 160.0
 mouse_filter = 2
 color = Color(0.0901961, 0.0901961, 0.152941, 1)
-metadata/_edit_lock_ = true
 
 [node name="InvalidArea" type="Area2D" parent="."]
 position = Vector2(45, 90)
@@ -82,11 +81,11 @@ visible = false
 position = Vector2(85.5, 0.5)
 shape = SubResource("RectangleShape2D_i1u1p")
 
-[node name="TileGrid" parent="." instance=ExtResource("3_mupgs")]
-position = Vector2(45, 90)
-
 [node name="PlayerPanel" parent="." instance=ExtResource("4_fjcw0")]
 position = Vector2(45, 30)
+
+[node name="TileGrid" parent="." instance=ExtResource("3_mupgs")]
+position = Vector2(45, 90)
 
 [node name="TopPanel" parent="." instance=ExtResource("5_jch8p")]
 position = Vector2(45, 7)
@@ -97,6 +96,7 @@ position = Vector2(45, 143)
 [node name="SettingsLayer" parent="." instance=ExtResource("7_hsl3d")]
 
 [node name="DEBUG" type="Area2D" parent="."]
+visible = false
 position = Vector2(21, 7)
 script = ExtResource("8_2kf0w")
 
@@ -145,6 +145,9 @@ action_mode = 0
 text = "D
 "
 script = ExtResource("12_dhijm")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(552, 304)
 
 [connection signal="input_event" from="InvalidArea" to="InvalidArea" method="_on_input_event"]
 [connection signal="pressed" from="DEBUG/DebugLayer/-HP" to="DEBUG/DebugLayer/-HP" method="_on_pressed"]

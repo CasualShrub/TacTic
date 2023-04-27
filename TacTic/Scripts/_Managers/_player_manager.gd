@@ -9,7 +9,7 @@ func _ready():
 	max_hp = 5
 	health = max_hp
 
-func lose_hp(hp: int):
+func lose_hp(hp: int = 1):
 	health -= hp
 	if (health <= 0):
 		health = 0

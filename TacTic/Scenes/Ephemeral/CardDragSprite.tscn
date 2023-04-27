@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk48xfrceybcx"]
+
+[ext_resource type="SpriteFrames" uid="uid://ct2d8ju4ak2yy" path="res://SpriteFrames/Shape.tres" id="1_mtoi5"]
+[ext_resource type="Script" path="res://Scripts/card_drag_sprite.gd" id="2_40xww"]
+
+[node name="CardDrag" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_mtoi5")
+animation = &"O_win"
+script = ExtResource("2_40xww")

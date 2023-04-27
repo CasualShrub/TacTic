@@ -2,13 +2,14 @@ class_name Tile
 extends Area2D
 
 var tile_type = 0
-var tile_id = Vector2(0,0)
-var shape_type = "empty"
+var tile_id: Vector2 = Vector2(0,0)
+var shape_type: String = "empty"
 
 var shape_being_dragged = "empty"
 
-var has_object = false
-var is_hovered = false
+var has_object: bool = false
+var is_hovered: bool = false
+var is_matched: bool = false
 
 var adjacent_tiles: Array[Tile]
 
@@ -57,10 +58,9 @@ func _on_Tile_input_event(_viewport, event, _shape_idx):
 				EventManager.emit_card_drag_fail()
 
 func show_adjacents():
-	print("Tile (%d,%d) has adjacent tiles: " % [tile_id.x, tile_id.y])
 	for tile in adjacent_tiles:
-		print("Tile (%d,%d)" % [tile.tile_id.x, tile.tile_id.y])
-		tile.modulate_color(Color("YELLOW"))
+		if tile:
+			tile.modulate_color(Color("YELLOW"))
 
 func get_matches_for_direction(direction: Direction, container: Array[Tile], shape: String):
 	if (adjacent_tiles[direction] == null):
@@ -81,3 +81,17 @@ func _on_Tile_mouse_exited():
 	is_hovered = false
 	if !has_object:
 		BackgroundSprite.play("variant%d" % tile_type)
+
+func animate_on_match():
+	ObjectSprite.play("O_match")
+	is_matched = true
+
+func _on_object_sprite_animation_finished():
+	if is_matched:
+		shape_type = "empty"
+		ObjectSprite.play("%s" % shape_type)
+		is_matched = false
+		var projectile: Projectile = load("res://Scenes/Ephemeral/Projectile.tscn").instantiate()
+		add_child(projectile)
+		projectile.animate_to_target()
+
