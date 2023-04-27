@@ -96,7 +96,6 @@ position = Vector2(45, 143)
 [node name="SettingsLayer" parent="." instance=ExtResource("7_hsl3d")]
 
 [node name="DEBUG" type="Area2D" parent="."]
-visible = false
 position = Vector2(21, 7)
 script = ExtResource("8_2kf0w")
 
