@@ -52,8 +52,7 @@ func _on_Tile_input_event(_viewport, event, _shape_idx):
 				GameManager.is_dragging = false
 				EventManager.emit_card_drag_success()
 			else:
-				#emit signal to return shape to original container
-				pass
+				EventManager.emit_card_drag_fail()
 
 func show_adjacents():
 	print("Tile (%d,%d) has adjacent tiles: " % [tile_id.x, tile_id.y])
