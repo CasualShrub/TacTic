@@ -117,12 +117,11 @@ func evaluate_grid(start_position: Vector2):
 	var direction2: int = 4
 	
 	#evaluate for each direction (\, |, /, —)
-	for i in 3:
-		direction1 += i
-		direction2 += i
-		var matches: Array[Tile] = evaluate_line(new_tile, direction1, direction2)
+	for i in range(4):
+		var matches: Array[Tile] = evaluate_line(new_tile, (direction1 + i), (direction2 + i))
 		matched_tiles.append_array(matches) 
 	
+	print("\nFINAL MATCHES:")
 	if (matched_tiles.size() >= 3):
 		for tile in matched_tiles:
 			print(tile.tile_id)
@@ -132,8 +131,22 @@ func evaluate_grid(start_position: Vector2):
 func evaluate_line(center_tile: Tile, direction1: int, direction2: int):
 	var eval_array: Array[Tile] = []
 	eval_array = center_tile.get_matches_for_direction(direction1, eval_array, center_tile.shape_type)
+	
+	print("direction1")
+	for tile in eval_array:
+		print(tile.tile_id)
+	
 	eval_array = center_tile.get_matches_for_direction(direction2, eval_array, center_tile.shape_type)
-	return eval_array
+	print("direction2")
+	for tile in eval_array:
+		print(tile.tile_id)
+	
+	#if current line has more 2 or more matches (we want 3 matches, origin tile included)
+	if (eval_array.size() >= 2):
+		return eval_array
+	else:
+		var empty_array: Array[Tile] = []
+		return empty_array
 
 func highlight_tiles_win(tiles):
 	for tile in tiles:
