@@ -20,9 +20,6 @@ func _input(event):
 	if event.is_action_pressed("randomize"):
 		randomize_shape()
 
-func draw():
-	pass
-
 func randomize_shape():
 	var random_int = randi_range(0,2)
 	match random_int:

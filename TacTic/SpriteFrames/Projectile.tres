@@ -1,0 +1,44 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://cjakyximan3c3"]
+
+[ext_resource type="Texture2D" uid="uid://b7rewth6mp7r1" path="res://Art/O.png" id="1_ytock"]
+[ext_resource type="Texture2D" uid="uid://uexj8huby5w1" path="res://Art/Triangle.png" id="2_mjpku"]
+[ext_resource type="Texture2D" uid="uid://upxa4bfqtpp1" path="res://Art/X.png" id="3_0brjj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax58i"]
+atlas = ExtResource("1_ytock")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7pp5"]
+atlas = ExtResource("2_mjpku")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esdo0"]
+atlas = ExtResource("3_0brjj")
+region = Rect2(48, 16, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax58i")
+}],
+"loop": false,
+"name": &"O",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7pp5")
+}],
+"loop": false,
+"name": &"Triangle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esdo0")
+}],
+"loop": false,
+"name": &"X",
+"speed": 5.0
+}]

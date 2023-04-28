@@ -1,10 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0ngpdak64d5u"]
+[gd_scene load_steps=9 format=3 uid="uid://c0ngpdak64d5u"]
 
 [ext_resource type="Script" path="res://Scripts/projectile.gd" id="1_7jtfh"]
 [ext_resource type="Texture2D" uid="uid://b7rewth6mp7r1" path="res://Art/O.png" id="1_7w0dh"]
+[ext_resource type="Texture2D" uid="uid://upxa4bfqtpp1" path="res://Art/X.png" id="3_ph0kr"]
+[ext_resource type="Texture2D" uid="uid://uexj8huby5w1" path="res://Art/Triangle.png" id="3_y4nc4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ax58i"]
 atlas = ExtResource("1_7w0dh")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7pp5"]
+atlas = ExtResource("3_y4nc4")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esdo0"]
+atlas = ExtResource("3_ph0kr")
 region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u37f2"]
@@ -13,14 +23,30 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ax58i")
 }],
-"loop": true,
+"loop": false,
 "name": &"O",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7pp5")
+}],
+"loop": false,
+"name": &"Triangle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esdo0")
+}],
+"loop": false,
+"name": &"X",
 "speed": 5.0
 }]
 
 [node name="Projectile" type="Node2D"]
 script = ExtResource("1_7jtfh")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="ProjectileSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u37f2")
-animation = &"O"
+animation = &"Triangle"

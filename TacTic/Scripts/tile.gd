@@ -1,6 +1,8 @@
 class_name Tile
 extends Area2D
 
+@export var projectile_scene : PackedScene
+
 var tile_type = 0
 var tile_id: Vector2 = Vector2(0,0)
 var shape_type: String = "empty"
@@ -83,16 +85,19 @@ func _on_Tile_mouse_exited():
 		BackgroundSprite.play("variant%d" % tile_type)
 
 func animate_on_match():
-	ObjectSprite.play("O_match")
+	ObjectSprite.play("%s_match" % shape_type)
 	is_matched = true
 	has_object = false
 
 func _on_object_sprite_animation_finished():
 	if is_matched:
+		is_matched = false
+		var projectile: Projectile = projectile_scene.instantiate()
+		add_child(projectile)
+		projectile.set_projectile_shape(shape_type)
+		
 		shape_type = "empty"
 		ObjectSprite.play("%s" % shape_type)
-		is_matched = false
-		var projectile: Projectile = load("res://Scenes/Ephemeral/Projectile.tscn").instantiate()
-		add_child(projectile)
+		
 		projectile.animate_to_target()
 

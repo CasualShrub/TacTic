@@ -1,6 +1,6 @@
 extends Area2D
 
-var tile_scene = preload("res://Scenes/Tile.tscn")
+@export var tile_scene: PackedScene
 
 var tile_count: int
 var tile_array: Array[Tile] = []
@@ -23,7 +23,7 @@ func setup_tiles():
 	
 func instantiate_tiles():
 	for i in range(grid_size * grid_size):
-		var tile = tile_scene.instantiate()
+		var tile: Tile = tile_scene.instantiate()
 		add_child(tile)
 		tile_array.append(tile)
 	tile_count = tile_array.size()

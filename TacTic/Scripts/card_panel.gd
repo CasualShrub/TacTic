@@ -55,7 +55,6 @@ func instantiate_cards(count: int = 1):
 			distance_from_empty = Vector2((card_size * (i - position_to_drop)),0)
 			var final_position = empty_vector + distance_from_empty
 			tween.tween_property(card_array[i], "position", final_position, 0.4).set_trans(Tween.TRANS_EXPO)
-
 	
 	update_card_info()
 
@@ -70,7 +69,7 @@ func on_card_removed(position_to_drop: int):
 	var empty_vector: Vector2 = get_card_vector_for_position(position_to_drop)
 	var distance_from_empty: Vector2 = Vector2.ZERO
 
-	var tween: Tween = create_tween()
+	var tween := create_tween()
 	tween.set_parallel()
 	for i in range(position_to_drop, card_array.size()):
 		if (card_array[i] != null):
@@ -78,8 +77,8 @@ func on_card_removed(position_to_drop: int):
 			var final_position = empty_vector + distance_from_empty
 			tween.tween_property(card_array[i], "position", final_position, 0.4).set_trans(Tween.TRANS_EXPO)
 
-func get_card_vector_for_position(empty_position: int):
-	var card_vector: Vector2 = Vector2(-36,0)
+func get_card_vector_for_position(empty_position: int) -> Vector2:
+	var card_vector := Vector2(-36,0)
 	card_vector.x += (card_size * empty_position)
 	return card_vector
 
