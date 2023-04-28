@@ -85,6 +85,7 @@ func _on_Tile_mouse_exited():
 func animate_on_match():
 	ObjectSprite.play("O_match")
 	is_matched = true
+	has_object = false
 
 func _on_object_sprite_animation_finished():
 	if is_matched:
