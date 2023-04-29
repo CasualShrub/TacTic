@@ -5,9 +5,18 @@ extends Node2D
 func _ready():
 	Animator.play("idle")
 	GameManager.player_position = self.global_position
-	EventManager.player_damaged.connect(on_player_damaged)
+	EventManager.player_damaged.connect(animate_take_damage)
+	EventManager.card_picked_up.connect(animate_player_attacking)
+	EventManager.card_drag_fail.connect(animate_player_idle)
+	EventManager.card_drag_success.connect(animate_player_idle)
 
-func on_player_damaged():
+func animate_player_idle(_unused = null):
+	Animator.play("idle")
+
+func animate_player_attacking(_unused = null):
+	Animator.play("attack")
+
+func animate_take_damage():
 	Animator.play("hurt")
 	Animator.queue("idle")
 	

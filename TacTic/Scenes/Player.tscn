@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://o5aa5fm4d2jj"]
+[gd_scene load_steps=8 format=3 uid="uid://o5aa5fm4d2jj"]
 
 [ext_resource type="Texture2D" uid="uid://cojr0uk604osw" path="res://Art/BenjaminEverson.png" id="2_0axyc"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="2_eab7n"]
@@ -50,9 +50,26 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_mt5vm"]
+resource_name = "attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i74ta"]
 _data = {
 "RESET": SubResource("Animation_45rh0"),
+"attack": SubResource("Animation_mt5vm"),
 "hurt": SubResource("Animation_o8gi0"),
 "idle": SubResource("Animation_1d0xu")
 }
