@@ -1,12 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://dney5gpbwaqsu"]
+[gd_scene load_steps=6 format=3 uid="uid://dney5gpbwaqsu"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_character.gd" id="1_usujs"]
-[ext_resource type="SpriteFrames" uid="uid://bwwbp3g4jso8" path="res://SpriteFrames/NoChaser.tres" id="2_b1y3i"]
+[ext_resource type="Texture2D" uid="uid://g63wv18r3tm5" path="res://Art/NoChaser2.png" id="2_i2r3s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na12s"]
+atlas = ExtResource("2_i2r3s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xou8f"]
+atlas = ExtResource("2_i2r3s")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_llgbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na12s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xou8f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
 
 [node name="EnemyCharacter" type="Node2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_usujs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_b1y3i")
+sprite_frames = SubResource("SpriteFrames_llgbh")
 animation = &"idle"
 autoplay = "idle"
