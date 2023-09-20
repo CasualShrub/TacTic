@@ -4,7 +4,14 @@ var is_dragging: bool
 var is_pressing: bool = false
 var shape_being_dragged: String = "empty"
 
-enum GameState {RESTORE, MAIN_MENU, SETTINGS_MENU, PLAYER_TURN, ENEMY_TURN}
+enum GameState {
+	RESTORE, 
+	MAIN_MENU, 
+	SETTINGS_MENU, 
+	PLAYER_TURN, 
+	ENEMY_TURN,
+	}
+	
 var game_state: GameState
 
 var player_position: Vector2 = Vector2.ZERO
@@ -31,5 +38,5 @@ func change_game_state(new_state: GameState):
 		pass #TODO: get saved previous game state and restore it
 	else:
 		game_state = new_state
-	print("GameState changed! current state:%s" % game_state)
+	print("GameState changed! current state: %s" % GameState.find_key(game_state))
 
